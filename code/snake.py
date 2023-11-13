@@ -19,6 +19,10 @@ class Snake:
             self.body = body_copy[:]
             self.has_eaten = False
 
+    def reset(self):
+        self.body = [pygame.Vector2(START_COL - col,START_ROW) for col in range(START_LENGTH)]
+        self.direction = pygame.Vector2(1,0)
+
     def draw(self):
         for point in self.body:
             rect = pygame.Rect(point.x * CELL_SIZE,point.y * CELL_SIZE,CELL_SIZE,CELL_SIZE)
